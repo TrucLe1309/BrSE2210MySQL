@@ -51,12 +51,12 @@ create table CategoryQuestion(
 );
 
 create table Question (
-	QuestionID 		 int primary key auto_increment,
-	Content 		 varchar(300),
-    CategoryID 		int,
-    TypeID 			int,
-    CreatorID 		int,
-    CreateDate 		date,
+	QuestionID 	int primary key auto_increment,
+	Content varchar(300),
+    CategoryID int,
+    TypeID int,
+    CreatorID int,
+    CreateDate date,
     CONSTRAINT FOREIGN KEY fk_Question_CategoryQuestion(CategoryID) REFERENCES `CategoryQuestion`(CategoryID)
     
 );
