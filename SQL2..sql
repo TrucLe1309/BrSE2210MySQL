@@ -9,7 +9,7 @@ create table Department(
 
 create table `position`(
 	PositionID int primary key auto_increment,
-    PositionName varchar(50) not null unique
+    PositionName varchar(50) not null
 );
 
 create table `account`(
@@ -25,7 +25,7 @@ create table `account`(
 
 create table `group`( 
 	GroupID int primary key auto_increment,
-    GroupName varchar(50) not null unique,
+    GroupName varchar(50) not null,
     CreatorID int not null unique,
     CreateDate date
     
