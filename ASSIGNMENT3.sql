@@ -125,8 +125,9 @@ INSERT INTO examquestion(ExamID, QuestionID)
                     
                     
 -- QUESTION 3: Lấy ra ID của phòng ban `Phong Sale`--
-SELECT * FROM department
-		WHERE DepartmentName = 'Phong Sale';
+SELECT DepartmentID, DepartmentName
+	FROM department
+	WHERE DepartmentName = 'Phong Sale';
         
         
         
