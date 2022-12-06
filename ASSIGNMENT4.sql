@@ -50,6 +50,7 @@ FROM question q
 LEFT JOIN examquestion e ON q.QuestionID= e.QuestionID
 GROUP BY q.QuestionID;
 
+
 -- Question 8: Lấy ra Question có nhiều câu trả lời nhất
 SELECT q.QuestionID, q.Content, COUNT(a.AnswerID) AS totalAnswer
 FROM question q JOIN answer a ON q.QuestionID
@@ -57,6 +58,9 @@ GROUP BY q.QuestionID
 ORDER BY totalAnswer desc
 LIMIT 1
 ;
+
+
+
 -- Question 9: Thống kê số lượng account trong mỗi group
 SELECT GroupID, COUNT(AccountID)
 FROM groupaccount
@@ -75,7 +79,7 @@ LIMIT 1
 -- Question 11: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM
 SELECT a.DepartmentID, d.DepartmentName, p.PositionName, COUNT(p.PositionID) AS totalPositon
 FROM `account` a JOIN department d ON a.departmentID= d.DepartmentID
-				JOIN position p ON a.PositionID = p.PositionID
+		JOIN position p ON a.PositionID = p.PositionID
 GROUP BY d.DepartmentID, p.PositionID
 ;
 
@@ -84,8 +88,8 @@ GROUP BY d.DepartmentID, p.PositionID
 --  question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, ...
 SELECT q.QuestionID, q.Content, t.TypeName, a.Fullname, s.Content
 FROM question q JOIN typequestion t ON q.TypeID = t.TypeID
-				JOIN `account` a ON q.CreatorID = a.AccountID
-                JOIN answer s ON q.QuestionID = n.QuestionID
+		JOIN `account` a ON q.CreatorID = a.AccountID
+                JOIN answer s ON q.QuestionID = s.QuestionID
 GROUP BY q.TypeID, q.CreatorID, s.QuestionID
 ;
 Error Code: 1055. Expression #5 of SELECT list is not in GROUP BY clause 
