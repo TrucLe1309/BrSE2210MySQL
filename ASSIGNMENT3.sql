@@ -169,9 +169,9 @@ SELECT  DepartmentID, COUNT(AccountID) AS totalMember
 WHERE  DepartmentID=2;
 
 
---  QUESTION 11: Lấy ra nhân viên có tên bắt đầu bằng chữ "D" và kết thúc bằng chữ "o"
+--  QUESTION 11: Lấy ra nhân viên có tên kết thúc bằng chữ "o"
 SELECT Fullname FROM `account`
-WHERE (SUBSTRING_INDEX(FullName, ' ', -1)) LIKE 'D%o' ;
+WHERE Fullname LIKE '%o' ;
         
 --  QUESTION 12: Xóa tất cả các exam được tạo trước ngày 20/12/2019--
 DELETE  FROM `exam`
@@ -180,13 +180,13 @@ WHERE CreatedDate < '2019-12-20';
 
 --  QUESTION 13: Xóa tất cả các question có nội dung bắt đầu bằng từ "câu hỏi"--
 DELETE  FROM `question`
-WHERE (SUBSTRING_INDEX(Content,' ',2)) LIKE 'cau hoi';
+WHERE Content LIKE 'Câu hỏi%';
 
 
 -- QUESTION 14:Update thông tin của account có id = 5 thành tên "Nguyễn Bá Lộc" và email thành loc.nguyenba@vti.com.vn--
 UPDATE `account`
 SET 	Fullname='Nguyen Ba Loc',
-		Email = 'thanhloc.nguyenba@vti.com.vn'
+	Email = 'thanhloc.nguyenba@vti.com.vn'
 WHERE AccountID=5;
 
 
@@ -196,5 +196,6 @@ SET 	GroupID = 4
 WHERE 	AccountID =5;
 
 
+-- 
 SET SQL_SAFE_UPDATES = 0;
 
